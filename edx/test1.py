@@ -25,5 +25,4 @@ class Person(object):
             raise ValueError
         return (datetime.date.today() - self.birthday).days
 
-#testing to see if atom is working or not?
-#hi??
+#justin is a noob
