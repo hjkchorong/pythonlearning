@@ -24,3 +24,6 @@ class Person(object):
         if self.birthday == None:
             raise ValueError
         return (datetime.date.today() - self.birthday).days
+
+#testing to see if atom is working or not?
+#hi??
