@@ -31,3 +31,21 @@ class Person(object):
         if self.lastName == other.lastName:
             return self.name < other.name
         return self.lastName < other.lastName
+
+class MITPerson(Person):
+    nextIdNum = 0  # this is a class attribute
+
+    def __init__(self,name):
+        Person.__init__(self,name)  # initialize Person attributes
+        self.idNum = MITPerson.nextIdNum  # MITPerson attribute: unique ID
+        MITPerson.nextIdNum += 1
+
+    def getIdNum(self):
+        return self.idNum
+
+    # sorting MIT people use their ID number, not name!
+    def __lt__(self, other):
+        return self.idNum < other.idNum
+
+    def speak(self,utterance):
+        return (self.getLastName() + " says: " + utterance)
