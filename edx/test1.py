@@ -5,11 +5,11 @@ class Person(object):
         """create a person called name"""
         self.name = name
         self.birthday = None
-        self.lastname = name.split(' ')[-1]
+        self.lastName = name.split(' ')[-1]
 
     def getLastName(self):
         """return self's last name"""
-        return self.lastname
+        return self.lastName
 
     def __str__(self):
         """return self's name"""
@@ -25,4 +25,9 @@ class Person(object):
             raise ValueError
         return (datetime.date.today() - self.birthday).days
 
-#justin is a noob
+    def __lt__(self, other):
+        """returns True if self's name is lexicographically less
+           than other's name, and False otherwise."""
+        if self.lastName == other.lastName:
+            return self.name < other.name
+        return self.lastName < other.lastName
