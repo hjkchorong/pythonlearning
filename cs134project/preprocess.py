@@ -18,9 +18,6 @@ def sudoku_db(filename='sudoku.txt'):
         temp = dict()
         for row in range(0,9):
             for column in range(0,9):
-                if int(e[9*row+column]) == 0:
-                    temp[(row, column)] = '.'
-                else:
-                    temp[(row,column)] = int(e[9*row+column])
+                temp[(row,column)] = int(e[9*row+column])
         result.append(temp)
     return result
